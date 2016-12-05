@@ -1,0 +1,41 @@
+﻿<div id="newTemperatureModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <h4 class="modal-title">Add temperature</h4>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="addTemperature()">
+                    <div class="form-group">
+                        <label for="temperature-name">Temperature name:</label>
+                        <input type="text"
+                               class="form-control"
+                               ng-model="newTemperature.Name"
+                               placeholder="Temperature name..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="temperature-status">Temperature status:</label>
+                        <input type="checkbox"
+                               class="form-control"
+                               ng-model="newTemperature.Status"
+                               placeholder="Temperature status..." />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Add temperature
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
