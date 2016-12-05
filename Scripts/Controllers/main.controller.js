@@ -5,18 +5,19 @@ angular.module("mainModule")
         "$scope",
         "sensorsApi",
         function ($scope, sensorsApi) {
-            $scope.temps = [];
+            $scope.temperatures = [];
 
-            var getTemps = function () {
-                sensorsApi.getTemps()
+            var getTemperatures = function () {
+                sensorsApi.getTemperatures()
                     .then(function (data) {
                         if (data !== null) {
-                            $scope.temps = data;
+                            $scope.temperatures = data;
+                            console.log(data);
                         }
                     });
             };
 
 
-            getTemps();
+            getTemperatures();
         }
     ]);

@@ -1,0 +1,28 @@
+﻿<center><h1 ng-bind="title"></h1></center>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="temperature in temperatures track by $index">
+                <td class="col-md-1" ng-bind="temperature.Id"></td>
+                <td class="col-md-1" ng-bind="temperature.Name"></td>
+                <th class="col-md-1" ng-bind="temperature.Value"></th>
+                <th class="col-md-1" ng-bind="temperature.Status"></th>
+                <td class="col-md-1">
+                    <button type="button"
+                            class="btn btn-danger"
+                            ng-click="deleteTemperature(temperature)">
+                        <span class="glyphicon glyphicon-remove"></span> Delete
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
