@@ -6,29 +6,24 @@
             $locationProvider.html5Mode(true);
             $routeProvider
 
-                .when("/", {
-                    templateUrl: "Views/Home.html",
-                    controller: "HomeController",
-                    caseInsensitiveMatch: true,
-                    activeTab: "Home"
-                })
-                .when("/Sensors/Lights", {
-                    templateUrl: "Views/Sensors/Lights.html",
-                    controller: "LightsController",
-                    caseInsensitiveMatch: true,
-                    activeTab: "Sensors"
-                })
-                .when("/Sensors/Alarm", {
-                    templateUrl: "Views/Sensors/Alarm.html",
-                    controller: "AlarmController",
-                    caseInsensitiveMatch: true,
-                    activeTab: "Sensors"
-                })
-                .when("/Sensors/Weather", {
-                    templateUrl: "Views/Sensors/Weather.html",
-                    controller: "WeatherController",
-                    caseInsensitiveMatch: true,
-                    activeTab: "Sensors"
-                });
+            .when("/", {
+                templateUrl: "Views/Home.html",
+                controller: "HomeController",
+                caseInsensitiveMatch: true,
+                activeTab: "Home"
+            })
+            .when("/Sensors", {
+                templateUrl: "Views/Sensors.html",
+                controller: "SensorsController",
+                caseInsensitiveMatch: true,
+                activeTab: "Sensors"
+            })
+            .when("/Temperatures", {
+                templateUrl: "Views/Temperatures.html",
+                controller: "TemperaturesController",
+                caseInsensitiveMatch: true,
+                activeTab: "Temperatures"
+            })
+            ;
         }
     ]);

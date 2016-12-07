@@ -1,27 +1,26 @@
-﻿<div class="col-sm-12">
+﻿<h1 ng-bind="title"></h1>
+<div ng-repeat="temperature in temperatures track by $index">
+    <h2 ng-bind="temperature.Name"></h2>
+</div>
+
+<center><h1 ng-bind="title"></h1></center>
+
+<div class="col-sm-12">
     <div class="row">
-        <div class="col-sm-12">
-            <div class="col-sm-4">
-                <a href="/Sensors/Alarm">
-                    <img class="picturesize" src="../images/alarm.jpg" />
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="/Sensors/Lights">
-                    <img class="picturesize" src="../images/Lights.jpg" />
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="/Sensors/Lights">
-                    <img class="picturesize" src="../images/temperature.jpg" />
-                </a>
+        <div class="col-sm-5 col-sm-offset-1">
+            <img src="../images/Lights.jpg" style="max-width: 89%;" />
+        </div>
+        <div class="col-sm-5 col-sm-offset-1">
+            <img src="../images/temperature.jpg" style="max-width: 89%;" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="margin-top: 30px;">
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <img src="../images/alarm.jpg" style="max-width: 89%;" />
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<style>
-    .picturesize {
-        max-width: 320px;
-    }
-</style>
