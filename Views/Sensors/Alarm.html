@@ -1,0 +1,18 @@
+﻿<h1 ng-bind="title"></h1>
+
+
+
+<div class="col-md-8" style="height: 400px; overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>Author</th>
+            <th>Message</th>
+            <th>Time sent</th>
+        </tr>
+        <tr ng-repeat="name in temps.name | orderBy:'timeSent':true track by $index">
+            <td class="col-md-1" ng-bind="name"></td>
+            <td class="col-md-1" ng-bind="value"></td>
+            <td class="col-md-1" ng-bind="status"></td>
+        </tr>
+    </table>
+</div>

@@ -12,11 +12,23 @@
                     caseInsensitiveMatch: true,
                     activeTab: "Home"
                 })
-            .when("/Sensors", {
-                templateUrl: "Views/Sensors.html",
-                controller: "SensorsController",
-                caseInsensitiveMatch: true,
-                activeTab: "Sensors"
-            });
+                .when("/Sensors/Lights", {
+                    templateUrl: "Views/Sensors/Lights.html",
+                    controller: "LightsController",
+                    caseInsensitiveMatch: true,
+                    activeTab: "Sensors"
+                })
+                .when("/Sensors/Alarm", {
+                    templateUrl: "Views/Sensors/Alarm.html",
+                    controller: "AlarmController",
+                    caseInsensitiveMatch: true,
+                    activeTab: "Sensors"
+                })
+                .when("/Sensors/Weather", {
+                    templateUrl: "Views/Sensors/Weather.html",
+                    controller: "WeatherController",
+                    caseInsensitiveMatch: true,
+                    activeTab: "Sensors"
+                });
         }
     ]);
