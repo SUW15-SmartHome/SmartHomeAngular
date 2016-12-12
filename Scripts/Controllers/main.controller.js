@@ -4,7 +4,10 @@ angular.module("mainModule")
     .controller("MainController", [
         "$scope",
         "sensorsApi",
-        function ($scope, sensorsApi) {
+        "Hub",
+        "$timeout",
+        "$rootScope",
+        function ($scope, sensorsApi, Hub, $timeout, $rootScope) {
             $scope.temperatures = [];
 
             var getTemperatures = function () {
@@ -12,12 +15,51 @@ angular.module("mainModule")
                     .then(function (data) {
                         if (data !== null) {
                             $scope.temperatures = data;
-                            console.log(data);
                         }
                     });
             };
 
+            var getTemperatureValues = function (path, hubname) {
+                var hub = null;
+                hub = new Hub(hubname, {
+                    listeners: {
+                        'recieveMessage': function (newTemperature) {
+                            var index = $scope.temperatures.map(function (temperature) {
+                                return temperature.Id;
+                            }).indexOf(newTemperature.Id);
+                            $scope.temperatures[index].Value = newTemperature.Value;
+                            $rootScope.$apply();
+                        }
+                    },
+                    rootPath: path,
+                        
+                    errorHandler: function (error) {
+                        console.error(error);
+                    },
+
+                    stateChanged: function (state) {
+                        switch (state.newState) {
+                            case $.signalR.connectionState.connecting:
+                                console.log("Connecting");
+                                break;
+                            case $.signalR.connectionState.connected:
+                                console.log("Connected");
+                                break;
+                            case $.signalR.connectionState.reconnecting:
+                                console.log("Reconnecting");
+                                break;
+                            case $.signalR.connectionState.disconnected:
+                                console.log("Disconnected");
+                                break;
+                        }
+                    }
+                });
+            };
+
+
+
 
             getTemperatures();
+            getTemperatureValues("http://localhost:58335/signalr", "TemperatureHub");
         }
     ]);
