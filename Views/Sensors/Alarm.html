@@ -1,18 +1,43 @@
-﻿<h1 ng-bind="title"></h1>
-
-
-
-<div class="col-md-8" style="height: 400px; overflow:auto;">
-    <table class="table">
-        <tr>
-            <th>Author</th>
-            <th>Message</th>
-            <th>Time sent</th>
-        </tr>
-        <tr ng-repeat="name in temps.name | orderBy:'timeSent':true track by $index">
-            <td class="col-md-1" ng-bind="name"></td>
-            <td class="col-md-1" ng-bind="value"></td>
-            <td class="col-md-1" ng-bind="status"></td>
-        </tr>
-    </table>
+﻿<center><h1 ng-bind="title"></h1></center>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <br />
+            <div class="col-md-12">
+                <button type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#newAlarmModal">
+                    <span class="glyphicon glyphicon-plus"></span> New alarm
+                </button>
+            </div>
+        </div>
+        <hr />
+    </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="alarm in alarms track by $index">
+                <td class="col-md-1" ng-bind="alarm.Id"></td>
+                <td class="col-md-1" ng-bind="alarm.Name"></td>
+                <td class="col-md-1" ng-bind="alarm.Status"></td>
+                <td class="col-md-1" ng-bind="alarm.Value"></td>
+                <td class="col-md-1">
+                    <!--<button type="button"
+                            class="btn btn-danger"
+                            ng-click="deleteTemperature(temperature)">
+                        <span class="glyphicon glyphicon-remove"></span> Delete
+                    </button>-->
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div ng-include="'Views/Partials/NewAlarmModal.html'"></div>

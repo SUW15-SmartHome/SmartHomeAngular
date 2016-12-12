@@ -13,6 +13,20 @@
                 <ul class="nav navbar-nav">
                     <li ng-class="{active: $route.current.activeTab == 'Home'}"><a href="/" style="font-family:Tahoma;">Home</a></li>
                 </ul>
+                <!--Dropdown list-->
+                <div class="btn-group">
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" style="margin-top: 7px;">
+                        Sensors
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-class="{active: $route.current.activeTab == 'Lights'}"><a href="/Sensors/Lights" style="font-family:Tahoma;">Lights</a></li>
+                        <li ng-class="{active: $route.current.activeTab == 'Temperatures'}"><a href="/Sensors/Temperatures" style="font-family:Tahoma;">Temperature</a></li>
+                        <li ng-class="{active: $route.current.activeTab == 'Alarm'}"><a href="/Sensors/Alarm" style="font-family:Tahoma;">Alarm</a></li>
+                    </ul>
+                </div>
+                <!--End of dropdpwn list-->
+
                 <ul class="nav navbar-nav navbar-right">
                     <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->

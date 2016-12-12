@@ -1,9 +1,9 @@
 ﻿/// <reference path="../angular.js" />
 
 angular.module("mainModule")
-    .controller("AlarmController", [
+    .controller("AlarmsController", [
         "$scope",
         function ($scope) {
-            $scope.title = "Alarm";
+            $scope.title = "Alarms";
         }
     ]);

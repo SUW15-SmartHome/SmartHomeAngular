@@ -6,6 +6,8 @@ angular.module("mainModule")
         "sensorsApi",
         function ($scope, sensorsApi) {
             $scope.temperatures = [];
+            $scope.alarams = [];
+            $scope.lights = [];
 
             var getTemperatures = function () {
                 sensorsApi.getTemperatures()
@@ -16,8 +18,25 @@ angular.module("mainModule")
                         }
                     });
             };
-
+            var getAlarms = function () {
+                sensorsApi.getAlarms()
+                    .then(function (data) {
+                        if (data !== null) {
+                            $scope.alarms = data;
+                        }
+                    })
+            }
+            var getLights = function () {
+                sensorsApi.getLights()
+                    .then(function (data) {
+                        if (data !== null) {
+                            $scope.lights = data;
+                        }
+                    })
+            }
 
             getTemperatures();
+            getAlarms();
+            getLights();
         }
     ]);

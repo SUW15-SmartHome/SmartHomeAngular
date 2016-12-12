@@ -1,1 +1,42 @@
-﻿<h1 ng-bind="title"></h1>
+﻿<center><h1 ng-bind="title"></h1></center>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <br />
+            <div class="col-md-12">
+                <button type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#newLightModal">
+                    <span class="glyphicon glyphicon-plus"></span> New light
+                </button>
+            </div>
+        </div>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="light in lights track by $index">
+                <td class="col-md-1" ng-bind="light.Id"></td>
+                <td class="col-md-1" ng-bind="light.Name"></td>
+                <th class="col-md-1" ng-bind="light.Status"></th>
+                <td class="col-md-1">
+                    <!--<button type="button"
+                            class="btn btn-danger"
+                            ng-click="deleteTemperature(temperature)">
+                        <span class="glyphicon glyphicon-remove"></span> Delete
+                    </button>-->
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div ng-include="'Views/Partials/NewLightModal.html'"></div>

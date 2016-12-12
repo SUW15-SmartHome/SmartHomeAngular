@@ -7,6 +7,8 @@ angular.module("mainModule")
         function ($http, $q) {
             var api = "http://localhost:58335/api";
             var temperatures = api + "/TemperaturesAPI";
+            var alarms = api + "/AlarmsAPI";
+            var lights = api + "/LightsAPI";
 
             this.getTemperatures = function () {
                 var deferred = $q.defer();
@@ -46,5 +48,35 @@ angular.module("mainModule")
 
                 return deferred.promise;
             };
+
+            /*Temperatures END!!*/
+
+            this.getAlarms = function () {
+                var deferred = $q.defer();
+
+                $http.get(alarms)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+
+                return deferred.promise;
+            };
+
+            /*Alarms END!*/
+
+            this.getLights = function () {
+                var deferred = $q.defer();
+
+                $http.get(lights)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+
+                return deferred.promise;
+            }
         }
     ]);
