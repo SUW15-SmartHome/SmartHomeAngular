@@ -17,7 +17,7 @@ angular.module("mainModule")
                             console.log(data);
                         }
                     });
-            };
+            };   
             var getAlarms = function () {
                 sensorsApi.getAlarms()
                     .then(function (data) {
