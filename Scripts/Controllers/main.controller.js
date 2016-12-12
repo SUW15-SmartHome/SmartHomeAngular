@@ -23,7 +23,7 @@ angular.module("mainModule")
                 var hub = null;
                 hub = new Hub(hubname, {
                     listeners: {
-                        'recieveMessage': function (newTemperature) {
+                        'recieveNewTemperatureValues': function (newTemperature) {
                             var index = $scope.temperatures.map(function (temperature) {
                                 return temperature.Id;
                             }).indexOf(newTemperature.Id);
