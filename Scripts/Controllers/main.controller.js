@@ -19,7 +19,7 @@ angular.module("mainModule")
                     });
             };   
             var getAlarms = function () {
-                sensorsApi.getAlarms()
+                sensorsApi.getAlarms()   
                     .then(function (data) {
                         if (data !== null) {
                             $scope.alarms = data;
