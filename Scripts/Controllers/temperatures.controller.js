@@ -6,7 +6,9 @@ angular.module("mainModule")
         "sensorsApi",
         function ($scope, sensorsApi) {
             $scope.title = "Temperature Sensors";
-            $scope.newTemperature = {};
+            $scope.newTemperature = {
+                Value: 20
+            };
 
             $scope.addTemperature = function () {
                 sensorsApi.addTemperature($scope.newTemperature)

@@ -26,14 +26,15 @@ angular.module("mainModule")
                         if (data !== null) {
                             $scope.alarms = data;
                         }
-                    })
-            }
+                    });
+            };
             var getLights = function () {
                 sensorsApi.getLights()
                     .then(function (data) {
                         if (data !== null) {
                             $scope.lights = data;
                         }
+<<<<<<< HEAD
                     })
             }
 
@@ -41,6 +42,10 @@ angular.module("mainModule")
             getAlarms();
             getLights();
             //};
+=======
+                    });
+            };
+>>>>>>> origin/master
 
             var getTemperatureValues = function (path, hubname) {
                 var hub = null;
@@ -80,9 +85,9 @@ angular.module("mainModule")
             };
 
 
-
-
             getTemperatures();
+            getAlarms();
+            getLights();
             getTemperatureValues("http://localhost:58335/signalr", "TemperatureHub");
         }
     ]);
