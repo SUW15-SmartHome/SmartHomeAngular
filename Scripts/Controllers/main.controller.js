@@ -34,18 +34,8 @@ angular.module("mainModule")
                         if (data !== null) {
                             $scope.lights = data;
                         }
-<<<<<<< HEAD
                     })
             }
-
-            getTemperatures();
-            getAlarms();
-            getLights();
-            //};
-=======
-                    });
-            };
->>>>>>> origin/master
 
             var getTemperatureValues = function (path, hubname) {
                 var hub = null;
@@ -83,6 +73,8 @@ angular.module("mainModule")
                     }
                 });
             };
+
+            
 
 
             getTemperatures();

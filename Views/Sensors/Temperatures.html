@@ -34,6 +34,11 @@
                 <th class="col-md-1" ng-bind="temperature.Status"></th>
                 <td class="col-md-1">
                     <button type="button"
+                            class="btn btn-info"
+                            ng-click="changeStatus(temperature)">
+                        <span class="glyphicon glyphicon-ok"></span> Change status
+                    </button>
+                    <button type="button"
                             class="btn btn-danger"
                             ng-click="deleteTemperature(temperature)">
                         <span class="glyphicon glyphicon-remove"></span> Delete

@@ -49,6 +49,20 @@ angular.module("mainModule")
                 return deferred.promise;
             };
 
+            this.changeStatus = function (changeStatus) {
+                var deferred = $q.defer();
+
+                $http.put(temperatures + "/" + changeStatus.Id, changeStatus)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+
+                return deferred.promise;
+            };
+            
+
             /*Temperatures END!!*/
 
             this.getAlarms = function () {
