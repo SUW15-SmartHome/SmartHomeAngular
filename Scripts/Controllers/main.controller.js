@@ -19,7 +19,6 @@ angular.module("mainModule")
                             $scope.temperatures = data;
                         }
                     });
-<<<<<<< HEAD
             };   
             var getAlarms = function () {
                 sensorsApi.getAlarms()   
@@ -41,8 +40,7 @@ angular.module("mainModule")
             getTemperatures();
             getAlarms();
             getLights();
-=======
-            };
+            //};
 
             var getTemperatureValues = function (path, hubname) {
                 var hub = null;
@@ -86,6 +84,5 @@ angular.module("mainModule")
 
             getTemperatures();
             getTemperatureValues("http://localhost:58335/signalr", "TemperatureHub");
->>>>>>> origin/master
         }
     ]);
