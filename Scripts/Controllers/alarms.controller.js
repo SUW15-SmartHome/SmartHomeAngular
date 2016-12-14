@@ -7,6 +7,7 @@ angular.module("mainModule")
         function ($scope, sensorsApi) {
             $scope.title = "Alarms";
             $scope.newAlarm = {};
+            $scope.newEditAlarm = {};
 
             $scope.addAlarm = function () {
                 sensorsApi.addAlarm($scope.newAlarm)
@@ -45,6 +46,26 @@ angular.module("mainModule")
                         }).indexOf(changeStatus.Id);
 
                         $scope.alarms[index].Status = changeStatus.Status;
+                    });
+            };
+
+            $scope.getAlarm = function (alarm) {
+                $scope.newEditAlarm = {
+                    Id: alarm.Id,
+                    Name: alarm.Name,
+                    Status: alarm.Status
+                };
+            };
+
+            $scope.editAlarm = function () {
+                sensorsApi.editAlarm($scope.newEditAlarm)
+                    .then(function (data) {
+                        var index = $scope.alarms.map(function (alarm) {
+                            return alarm.Id;
+                        }).indexOf($scope.newEditAlarm.Id);
+
+                        $scope.alarms[index] = $scope.newEditAlarm;
+                        $scope.newEditAlarm = {};
                     });
             };
         }

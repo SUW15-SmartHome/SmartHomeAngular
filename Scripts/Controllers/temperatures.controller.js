@@ -69,7 +69,8 @@ angular.module("mainModule")
                             return temperature.Id;
                         }).indexOf($scope.newEditTemperature.Id);
 
-                        console.log($scope.temperatures[index]);
+                        $scope.temperatures[index] = $scope.newEditTemperature;
+                        $scope.newEditTemperature = {};
                     });
             };
         }

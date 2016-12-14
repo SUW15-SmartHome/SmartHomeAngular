@@ -10,6 +10,8 @@ angular.module("mainModule")
             var alarms = api + "/AlarmsAPI";
             var lights = api + "/LightsAPI";
 
+            /*Temperatures Start*/
+
             this.getTemperatures = function () {
                 var deferred = $q.defer();
 
@@ -71,8 +73,9 @@ angular.module("mainModule")
                 return deferred.promise;
             };
             
-
             /*Temperatures END!!*/
+
+            /*Alarms Start*/
 
             this.getAlarms = function () {
                 var deferred = $q.defer();
@@ -124,8 +127,20 @@ angular.module("mainModule")
                 return deferred.promise;
             };
 
+            this.editAlarm = function (editAlarm) {
+                var deferred = $q.defer();
+                $http.put(alarms + "/" + editAlarm.Id, editAlarm)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+                return deferred.promise;
+            };
 
             /*Alarms END!*/
+
+            /*Lights Start*/
 
             this.getLights = function () {
                 var deferred = $q.defer();
@@ -169,6 +184,17 @@ angular.module("mainModule")
             this.changeLightStatus = function (changeStatus) {
                 var deferred = $q.defer();
                 $http.put(lights + "/" + changeStatus.Id, changeStatus)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+                return deferred.promise;
+            };
+
+            this.editLight = function (editLight) {
+                var deferred = $q.defer();
+                $http.put(lights + "/" + editLight.Id, editLight)
                     .then(function (response) {
                         deferred.resolve(response.data);
                     }, function (response) {

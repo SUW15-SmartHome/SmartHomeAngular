@@ -7,6 +7,7 @@ angular.module("mainModule")
         function ($scope, sensorsApi) {
             $scope.title = "Lights";
             $scope.newLight = {};
+            $scope.newEditLight = {};
 
             $scope.addLight = function () {
                 sensorsApi.addLight($scope.newLight) 
@@ -45,6 +46,26 @@ angular.module("mainModule")
                         }).indexOf(changeStatus.Id);
 
                         $scope.lights[index].Status = changeStatus.Status;
+                    });
+            };
+
+            $scope.getLight = function (light) {
+                $scope.newEditLight = {
+                    Id: light.Id,
+                    Name: light.Name,
+                    Status: light.Status
+                };
+            };
+
+            $scope.editLight = function () {
+                sensorsApi.editLight($scope.newEditLight)
+                    .then(function (data) {
+                        var index = $scope.lights.map(function (light) {
+                            return light.Id;
+                        }).indexOf($scope.newEditLIght.Id);
+
+                        $scope.lights[index] = $scope.newEditLight;
+                        $scope.newEditLight = {};
                     });
             };
         }

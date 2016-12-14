@@ -1,4 +1,4 @@
-﻿<div id="editTemperatureModal" class="modal fade" role="dialog">
+﻿<div id="editAlarmModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content -->
@@ -10,13 +10,13 @@
                 <h4 class="modal-title">Edit temperature</h4>
             </div>
             <div class="modal-body">
-                <form ng-submit="editTemperature()">
+                <form ng-submit="editAlarm()">
                     <div class="form-group">
-                        <label for="temperature-name">Temperature name:</label>
+                        <label for="temperature-name">Alarm name:</label>
                         <input type="text"
                                class="form-control"
-                               ng-model="newEditTemperature.Name"
-                               placeholder="Temperature name..." />
+                               ng-model="newEditAlarm.Name"
+                               placeholder="Alarm name..." />
                     </div>
 
                     <button type="submit" class="btn btn-primary" data-dismiss="modal">
