@@ -34,8 +34,8 @@ angular.module("mainModule")
                         if (data !== null) {
                             $scope.lights = data;
                         }
-                    })
-            }
+                    });
+            };
 
             var getTemperatureValues = function (path, hubname) {
                 var hub = null;

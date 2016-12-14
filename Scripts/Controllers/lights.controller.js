@@ -62,7 +62,7 @@ angular.module("mainModule")
                     .then(function (data) {
                         var index = $scope.lights.map(function (light) {
                             return light.Id;
-                        }).indexOf($scope.newEditLIght.Id);
+                        }).indexOf($scope.newEditLight.Id);
 
                         $scope.lights[index] = $scope.newEditLight;
                         $scope.newEditLight = {};
