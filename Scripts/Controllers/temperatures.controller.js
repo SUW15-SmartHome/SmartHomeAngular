@@ -29,30 +29,27 @@ angular.module("mainModule")
                     });
             };
            
-            //bug
             $scope.changeStatus = function (temperature) {
-                var newTemperature = temperature;
-                sensorsApi.changeStatus(newTemperature)
+                var changeStatus = {
+                    Id: temperature.Id,
+                    Name: temperature.Name,
+                    Value: temperature.Value,
+                    Status: temperature.Status
+                };
+                if (temperature.Status !== true) {
+                    changeStatus.Status = true;
+                }
+                else {
+                    changeStatus.Status = false;
+                }
+                sensorsApi.changeStatus(changeStatus)
                     .then(function (data) {
                         var index = $scope.temperatures.map(function (temperature) {
                             return temperature.Id;
-                        }).indexOf(temperature.Id);
-
-
-                        if (temperature != true) {
-                            temperature == true;
-                        } else {
-                            temperature == false;
-                        };
-                       
-                        $scope.temperatures[index].Status = temperature.Status;
-                        console.log($scope.temperatures[index].Status);
-
+                        }).indexOf(changeStatus.Id);
+                        
+                        $scope.temperatures[index].Status = changeStatus.Status;
                     });
             };
-
-            
-
-            
         }
     ]);
