@@ -29,11 +29,16 @@
                 <td class="col-md-1" ng-bind="light.Name"></td>
                 <th class="col-md-1" ng-bind="light.Status"></th>
                 <td class="col-md-1">
-                    <!--<button type="button"
+                    <button type="button"
+                            class="btn btn-info"
+                            ng-click="changeLightStatus(light)">
+                        <span class="glyphicon glyphicon-ok"></span> Change status
+                    </button>
+                    <button type="button"
                             class="btn btn-danger"
-                            ng-click="deleteTemperature(temperature)">
+                            ng-click="deleteLight(light)">
                         <span class="glyphicon glyphicon-remove"></span> Delete
-                    </button>-->
+                    </button>
                 </td>
             </tr>
         </table>

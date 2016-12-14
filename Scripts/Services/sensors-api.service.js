@@ -59,6 +59,17 @@ angular.module("mainModule")
                     });
                 return deferred.promise;
             };
+
+            this.editTemperature = function (editTemperature) {
+                var deferred = $q.defer();
+                $http.put(temperatures + "/" + editTemperature.Id, editTemperature)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+                return deferred.promise;
+            };
             
 
             /*Temperatures END!!*/
@@ -76,6 +87,44 @@ angular.module("mainModule")
                 return deferred.promise;
             };
 
+            this.addAlarm = function (newAlarm) {
+                var deferred = $q.defer();
+
+                $http.post(alarms, newAlarm)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+
+                return deferred.promise;
+            };
+
+            this.deleteAlarm = function (id) {
+                var deferred = $q.defer();
+
+                $http.delete(alarms + "/" + id)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+
+                return deferred.promise;
+            };
+
+            this.changeAlarmStatus = function (changeStatus) {
+                var deferred = $q.defer();
+                $http.put(alarms + "/" + changeStatus.Id, changeStatus)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+                return deferred.promise;
+            };
+
+
             /*Alarms END!*/
 
             this.getLights = function () {
@@ -90,5 +139,44 @@ angular.module("mainModule")
 
                 return deferred.promise;
             };
+
+            this.addLight = function (newLight) {
+                var deferred = $q.defer();
+
+                $http.post(lights, newLight)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+
+                return deferred.promise;
+            };
+
+            this.deleteLight = function (id) {
+                var deferred = $q.defer();
+
+                $http.delete(lights + "/" + id)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+
+                return deferred.promise;
+            };
+
+            this.changeLightStatus = function (changeStatus) {
+                var deferred = $q.defer();
+                $http.put(lights + "/" + changeStatus.Id, changeStatus)
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    }, function (response) {
+                        deferred.resolve([]);
+                    });
+                return deferred.promise;
+            };
+
+            /*Lights END!*/
         }
     ]);

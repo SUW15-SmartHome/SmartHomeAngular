@@ -28,13 +28,17 @@
                 <td class="col-md-1" ng-bind="alarm.Id"></td>
                 <td class="col-md-1" ng-bind="alarm.Name"></td>
                 <td class="col-md-1" ng-bind="alarm.Status"></td>
-                <td class="col-md-1" ng-bind="alarm.Value"></td>
                 <td class="col-md-1">
-                    <!--<button type="button"
+                    <button type="button"
+                            class="btn btn-info"
+                            ng-click="changeAlarmStatus(alarm)">
+                        <span class="glyphicon glyphicon-ok"></span> Change status
+                    </button>
+                    <button type="button"
                             class="btn btn-danger"
-                            ng-click="deleteTemperature(temperature)">
+                            ng-click="deleteAlarm(alarm)">
                         <span class="glyphicon glyphicon-remove"></span> Delete
-                    </button>-->
+                    </button>
                 </td>
             </tr>
         </table>

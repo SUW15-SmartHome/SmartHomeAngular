@@ -51,5 +51,17 @@ angular.module("mainModule")
                         $scope.temperatures[index].Status = changeStatus.Status;
                     });
             };
+
+            $scope.editTemperature = function (temperature) {
+                //sensorsApi.editTemperature(editTemperature)
+                //    .then(function (data) {
+                //        var index = $scope.temperatures.map(function (temperature) {
+                //            return temperature.Id;
+                //        }).indexOf(editTemperature.Id);
+
+                //        console.log($scope.temperatures[index]);
+                //    });
+                console.log(temperature);
+            };
         }
     ]);

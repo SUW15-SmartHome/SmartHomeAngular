@@ -32,11 +32,17 @@
                 <td class="col-md-1" ng-bind="temperature.Name"></td>
                 <th class="col-md-1" ng-bind="temperature.Value"></th>
                 <th class="col-md-1" ng-bind="temperature.Status"></th>
-                <td class="col-md-1">
+                <td class="col-md-3">
                     <button type="button"
                             class="btn btn-info"
                             ng-click="changeStatus(temperature)">
                         <span class="glyphicon glyphicon-ok"></span> Change status
+                    </button>
+                    <button type="button"
+                            class="btn btn-success"
+                            data-toggle="modal"
+                            data-target="#editTemperatureModal">
+                        <span class="glyphicon glyphicon-info-sign"></span> Edit
                     </button>
                     <button type="button"
                             class="btn btn-danger"
@@ -50,3 +56,4 @@
 </div>
 
 <div ng-include="'Views/Partials/NewTemperatureModal.html'"></div>
+<div ng-include="'Views/Partials/EditTemperatureModal.html'"></div>
