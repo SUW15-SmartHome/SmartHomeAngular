@@ -10,12 +10,12 @@
                 <h4 class="modal-title">Edit temperature</h4>
             </div>
             <div class="modal-body">
-                <form ng-submit="editTemperature(temperature)">
+                <form ng-submit="editTemperature()">
                     <div class="form-group">
                         <label for="temperature-name">Temperature name:</label>
                         <input type="text"
                                class="form-control"
-                               ng-model="editTemperature.Name"
+                               ng-model="newEditTemperature.Name"
                                placeholder="Temperature name..." />
                     </div>
 

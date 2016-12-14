@@ -9,6 +9,7 @@ angular.module("mainModule")
             $scope.newTemperature = {
                 Value: 20
             };
+            $scope.newEditTemperature = {};
 
             $scope.addTemperature = function () {
                 sensorsApi.addTemperature($scope.newTemperature)
@@ -52,16 +53,24 @@ angular.module("mainModule")
                     });
             };
 
-            $scope.editTemperature = function (temperature) {
-                //sensorsApi.editTemperature(editTemperature)
-                //    .then(function (data) {
-                //        var index = $scope.temperatures.map(function (temperature) {
-                //            return temperature.Id;
-                //        }).indexOf(editTemperature.Id);
+            $scope.getTemperatrue = function (temperature) {
+                $scope.newEditTemperature = {
+                    Id: temperature.Id,
+                    Name: temperature.Name,
+                    Value: temperature.Value,
+                    Status: temperature.Status
+                };
+            };
 
-                //        console.log($scope.temperatures[index]);
-                //    });
-                console.log(temperature);
+            $scope.editTemperature = function () {
+                sensorsApi.editTemperature($scope.newEditTemperature)
+                    .then(function (data) {
+                        var index = $scope.temperatures.map(function (temperature) {
+                            return temperature.Id;
+                        }).indexOf($scope.newEditTemperature.Id);
+
+                        console.log($scope.temperatures[index]);
+                    });
             };
         }
     ]);
